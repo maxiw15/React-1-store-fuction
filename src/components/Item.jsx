@@ -1,29 +1,27 @@
-const ShopItemFunc = () => {
-  const item = {
-    brand: 'Tiger of Sweden',
-    title: 'Leonard coat',
-    description: 'Minimalistic coat in cotton-blend',
-    descriptionFull: 'Men\'s minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.',
-    price: 399,
-    currency: '£'
-  }
+import React from 'react'
+import PropsTypes from 'prop-types'
 
-  return <div className="main-content">
-    <h2>{item.name}</h2>
-    <h1>{item.title}</h1>
-    <h3>{item.description}</h3>
-    <div className="description">
-      {item.descriptionFull}
+const ShopItemFunc = ({item}) => (
+    <>
+    <div class="main-content">
+        <h2>{item.brand}</h2>
+        <h1>{item.title}</h1>
+        <h3>{item.description}</h3>
+        <div class="description">
+            {item.descriptionFull}
+        </div>
+        <div class="highlight-window mobile"><div class="highlight-overlay"></div></div>
+        <div class="divider"></div>
+        <div class="purchase-info">
+            <div class="price">{`${item.currency}${item.price}`}</div>
+            <button>Добавить в корзину</button>
+        </div>
     </div>
-    <div className="highlight-window mobile">
-      <div className="highlight-overlay"></div>
-    </div>
-    <div className="divider"></div>
-    <div className="purchase-info">
-      <div className="price">{item.currency}{item.price}</div>
-      <button>Добавить в корзину</button>
-    </div>
-  </div>
-}
+    </>
+);
+
+ShopItemFunc.propsTypes = {
+    item: PropsTypes.object.isRequired,
+};
 
 export default ShopItemFunc
